@@ -1,0 +1,43 @@
+<html>
+<head>
+<style>
+    html, body {
+        width: 100%;
+        font-family: Tahoma, Geneva, sans-serif;
+    }
+    a {
+        color: #5b5b5b;
+    }
+    a:hover {
+        color: #2b2b2b;
+    }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script id="tmpl" type="text/template">
+    <h1 id="hello-world"><%=home.title%></h1>
+    <ul id="lang-list">
+    <%_.forEach(lang, function(langItem) {%>
+        <li><a href="?lang=<%=langItem.id%>"><%=langItem.name%></a></li>
+    <%});%>
+    </ul>
+</script>
+<script>
+    function onLocaleLoad(data) {
+        var html = _.template(document.getElementById('tmpl').innerHTML, data);
+        document.title = data.meta.title;
+        document.getElementById('app').innerHTML = html;
+    }
+
+    // dynamically load script
+    var script = document.createElement('script');
+    var langId = window.location.href.split('lang=')[1] || 'en'; // use 'en' as default language
+    script.type = 'text/javascript';
+    script.src = 'locale/' + langId + '.js?bust=' + (+ new Date);
+    var firstScriptNode = document.getElementsByTagName('script')[0];
+    firstScriptNode.parentNode.insertBefore(script, firstScriptNode);
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+    "name" : "use-google-doc-to-handle-your-localization-files",
+    "version" : "0.0.1",
+    "private" : true,
+    "author": "Edan Kwan (www.edankwan.com)",
+    "devDependencies" : {
+        "google-spreadsheet" : "~0.2.8",
+        "lodash" : "~2.4.1"
+    },
+    "engine" : {
+        "node" : "0.8.x"
+    }
+}

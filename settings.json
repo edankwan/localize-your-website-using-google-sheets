@@ -1,0 +1,15 @@
+{
+    "user" : "__YOUR_USER_NAME__",
+    "pass" : "__YOUR_PASSWORD__",
+    "key" : "__DOCUMENT_KEY__",
+    "refKey" : "key",
+    "srcFile" : "./template.js",
+    "dist" : "./locale/",
+    "ext" : "js",
+    "langList" : [
+        "en",
+        "fr",
+        "es",
+        "it"
+    ]
+}
